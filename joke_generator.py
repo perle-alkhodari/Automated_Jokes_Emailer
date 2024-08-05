@@ -16,5 +16,8 @@ class JokeGenerator:
     def get_joke(self):
         response = requests.get(url=self.endpoint, headers=self.headers)
         data = response.json()
-        joke = data[0]["joke"]
-        return joke
+        try:
+            joke = data[0]["joke"]
+            return joke
+        except KeyError:
+            print("Something went wrong")

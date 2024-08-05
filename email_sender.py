@@ -18,6 +18,6 @@ class SendMail:
         connection.starttls()
 
         connection.login(user=sender, password=sender_password)
-        connection.sendmail(from_addr=sender, to_addrs=to_user, msg=message)
+        connection.sendmail(to_user, sender, msg=message)
 
         connection.close()
